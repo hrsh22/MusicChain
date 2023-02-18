@@ -76,7 +76,10 @@ const UploadPage = () => {
     </Upload>
         </Form.Item>
 
-        <Form.Item label="Token ID" required align="center"  tooltip="This is a required field">
+        <Form.Item label="Song Name" required align="center"  tooltip="This is a required field">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Artist Name" required align="center"  tooltip="This is a required field">
         <Input placeholder="input placeholder" />
       </Form.Item>
 
