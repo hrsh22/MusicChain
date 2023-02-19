@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 
 import Image from "next/image";
-const MetaMask = () => {
 
+export var currentAC = "";
+const MetaMask = () => {
+ 
   const [currentAccount, setCurrentAccount] = useState("");
   const [connect, setConnect] = useState(false);
   const [balance, setBalance] = useState("");
@@ -26,6 +28,7 @@ const MetaMask = () => {
             if (accounts.length) {
                 const account = accounts[0];
                 setCurrentAccount(account);
+                currentAC = account;
                 // console.log("currentAccount", account);
                 const balance = await provider.getBalance('0x5CC945E9463E644FFBb28b93ea986aAD6e94D8Bf');
                 setBalance(ethers.utils.formatEther(balance)+' ETH');
