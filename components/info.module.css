@@ -1,0 +1,22 @@
+.Info {
+    width: 300px;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 10px;
+    background: #f7f7f7;
+    color: #262626;
+    box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .Heading {
+    margin: 30px auto 0;
+  }
+  .HeadingValue {
+    margin: 10px;
+  }
+  
+  .InfoImg {
+    border-radius: 50%;
+  }
+  

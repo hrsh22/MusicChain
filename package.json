@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@arcana/auth": "^1.0.1",
+    "@arcana/auth-react": "^0.0.3",
     "@next/font": "13.1.6",
     "@nomiclabs/hardhat-waffle": "^2.0.5",
     "@pinata/sdk": "^2.1.0",
