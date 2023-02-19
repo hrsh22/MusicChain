@@ -1,4 +1,4 @@
-import DashbordLayouth from '@/components/dashbordh'
+import DashbordLayouth from '@/components/dashboard'
 import React from 'react'
 
 const Dashbordh = () => {

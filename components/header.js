@@ -1,24 +1,35 @@
 import React, { useState } from 'react';
-import { Button, Drawer } from 'antd';
+import { Button, Drawer, Card } from 'antd';
 import MetaMask from './metamask';
 import Head from 'next/head';
+import * as PushAPI from "@pushprotocol/restapi";
 
 const Header = () => {
 
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    const showDrawer = () => {
-        setOpen(true);
-      };
-    
-      const onClose = () => {
-        setOpen(false);
-      };
+  const [notification, SetNotification] = useState([]);
+  const NotificationReceiver = async (props) => {
+    const notifications = await PushAPI.user.getFeeds({
+      user: "eip155:5:0xB78721b29c028B16ab25f4a2adE1d25fbf8B2d74", // user address in CAIP
+      env: "staging",
+    });
+    SetNotification(notifications);
+  };
+
+  const showDrawer = () => {
+    NotificationReceiver();
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
 
   return (
     <>
     <Head>
-      <title>BeatBoxx</title>
+      <title>MusicChain</title>
     </Head>
       <link
         rel="stylesheet"
@@ -57,10 +68,18 @@ const Header = () => {
                   3
                 </span>
               </span>
-              <Drawer placement="right" onClose={onClose} open={open}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+              <Drawer  title="Push Notification (hrsh22.eth)" width={'700px'} placement="right" onClose={onClose} open={open}>
+
+          {notification.map((item, index) => {
+            console.log(notification);
+            return (
+            
+              <Card key='key' className="mt-3" type="inner" title={item['app']} extra={<a href="#"><b>{item['blockchain']}</b></a>}>
+                {item['message']}
+              </Card>
+      
+            );
+          })}
       </Drawer>
             </li>
             

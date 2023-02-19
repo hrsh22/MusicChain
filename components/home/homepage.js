@@ -10,7 +10,7 @@ const HomePage = () => {
         <div class="mx-auto text-center ">
            
             <h1 class="mb-8 text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#240146]  to-[#f63d8d] ">
-  BeatBoxx
+  MusicChain
 </h1>
             <p class="px-0 mb-8 text-lg text-[#ededed] md:text-xl lg:px-24">
             Redefine Your Music Experience with a Decentralized and Unrestricted Music Player.

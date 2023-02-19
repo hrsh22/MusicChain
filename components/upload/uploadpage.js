@@ -8,23 +8,23 @@ import { ethers } from "ethers";
 import { currentAC } from "../metamask";
 import Web3 from "web3";
 
-import { AuthProvider, CHAIN } from '@arcana/auth'
+// import { AuthProvider, CHAIN } from '@arcana/auth'
 
 // interface ChainConfig {
 //   chainId: CHAIN
 //   rpcUrl?: string
 // }
-
-const auth = new AuthProvider(`${appAddress}`, {
-  position: 'left',
-  theme: 'light',
-  alwaysVisible: false,
-  network: 'testnet', // network can be testnet or mainnet - defaults to testnet
-  chainConfig: {
-    chainId: CHAIN.MANTLE,
-    rpcUrl: '',
-  },
-})
+// const appAddress = "1dcce7281c2a43270efa25185fc4b94bd10a37b2"
+// const auth = new AuthProvider(`${appAddress}`, {
+//   position: 'left',
+//   theme: 'light',
+//   alwaysVisible: false,
+//   network: 'testnet', // network can be testnet or mainnet - defaults to testnet
+//   chainConfig: {
+//     chainId: CHAIN.MANTLE,
+//     rpcUrl: 'https://rpc.testnet.mantle.xyz',
+//   },
+// })
 
 
 
@@ -33,7 +33,7 @@ const { TextArea } = Input;
 
 // const provider = new ethers.providers.JsonRpcProvider("http://localhost:3000");
 // const signer = provider.getSigner();
-var ipfs = "QmNnf3LgB23wgxh2APJXiVs2C3d8fHR8jqG8EU8vReBS6C";
+var ipfs = "QmXCqZhNZf7prgy5EMQNM52QucXfLY2aCk4QTdifFnLZ3b";
 // const Web3 = require('web3')
 const UploadPage = () => {
   const [uploaded, setUploaded] = useState(false);
@@ -46,8 +46,7 @@ const UploadPage = () => {
 
   // const contract = new ethers.Contract(uploadAddress, uploadABI, signer);
   // console.log("contract: ", contract);
- 
-
+  
   async function handleSubmit() {
     submitSong(song, artist, ipfs);
     console.log("Submit button clicked!");
@@ -55,20 +54,24 @@ const UploadPage = () => {
 
   async function submitSong(song, artist, ipfs) {
 
-    
-
-    if (typeof window.ethereum === "undefined") {
-      alert("Please install MetaMask first.");
-      return;
+    try {
+      // Prompt the user to connect their Metamask wallet
+      await window.ethereum.request({ method: "eth_requestAccounts" });
+      
+      // Get the current account from the provider
+      const accounts = await window.ethereum.request({ method: "eth_accounts" });
+      const currentAccount = accounts[0];
+      
+      console.log(`Connected to Metamask with account ${currentAccount}`);
+    } catch (error) {
+      console.error(error);
     }
 
-    // Connect to the MetaMask provider
-    window.addEventListener("load", async () => {
-      try {
-        await ethereum.enable();
-      } catch (error) {}
-    });
-
+    // await auth.init()
+    
+    // const provider = await auth.connect()
+    // const info = await auth.getUser()
+    // console.log(info);
     // Create a Web3 object
     const web3 = new Web3(window.ethereum);
     // Load the ERC-20 contract
