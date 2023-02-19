@@ -1,38 +1,98 @@
-import { InboxOutlined, UploadOutlined } from "@ant-design/icons";
+import { InboxOutlined } from "@ant-design/icons";
 import { message, Upload, Form, Input, DatePicker, Button } from "antd";
 const { Dragger } = Upload;
-import { useState } from "react";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 import { uploadAddress, uploadABI } from "../Details";
 import { ethers } from "ethers";
 import { currentAC } from "../metamask";
+import Web3 from "web3";
+
+import { AuthProvider, CHAIN } from '@arcana/auth'
+
+// interface ChainConfig {
+//   chainId: CHAIN
+//   rpcUrl?: string
+// }
+
+const auth = new AuthProvider(`${appAddress}`, {
+  position: 'left',
+  theme: 'light',
+  alwaysVisible: false,
+  network: 'testnet', // network can be testnet or mainnet - defaults to testnet
+  chainConfig: {
+    chainId: CHAIN.MANTLE,
+    rpcUrl: '',
+  },
+})
+
+
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
-const provider = new ethers.providers.JsonRpcProvider("http://localhost:3000");
-const signer = provider.getSigner();
-var ipfs = ""
+// const provider = new ethers.providers.JsonRpcProvider("http://localhost:3000");
+// const signer = provider.getSigner();
+var ipfs = "QmNnf3LgB23wgxh2APJXiVs2C3d8fHR8jqG8EU8vReBS6C";
+// const Web3 = require('web3')
 const UploadPage = () => {
-
+  const [uploaded, setUploaded] = useState(false);
   const [song, setSong] = useState("");
   const [artist, setArtist] = useState("");
-  
+
   const [ipfsHash, setIpfsHash] = useState(null);
 
   // console.log("currentAC: ", currentAC);
-  
-  const contract = new ethers.Contract(uploadAddress, uploadABI, signer);
-  // console.log("contract: ", contract);
 
-  async function handleSubmit(){
+  // const contract = new ethers.Contract(uploadAddress, uploadABI, signer);
+  // console.log("contract: ", contract);
+ 
+
+  async function handleSubmit() {
     submitSong(song, artist, ipfs);
     console.log("Submit button clicked!");
-  };
+  }
 
   async function submitSong(song, artist, ipfs) {
-    await contract.uploadSong(song, artist, ipfs);
-    console.log("Song uploaded!");
+
+    
+
+    if (typeof window.ethereum === "undefined") {
+      alert("Please install MetaMask first.");
+      return;
+    }
+
+    // Connect to the MetaMask provider
+    window.addEventListener("load", async () => {
+      try {
+        await ethereum.enable();
+      } catch (error) {}
+    });
+
+    // Create a Web3 object
+    const web3 = new Web3(window.ethereum);
+    // Load the ERC-20 contract
+    const contract = new web3.eth.Contract(uploadABI, uploadAddress);
+
+    console.log("contract: ", contract);
+    console.log("song: ", song);
+    console.log("artist: ", artist);
+    console.log("ipfs: ", ipfs);
+    const accounts = await web3.eth.getAccounts();
+    console.log("accounts: ", accounts[0]);
+    await contract.methods
+      .uploadSong(song, artist, ipfs)
+      .send({ from: accounts[0] })
+      .on("Receipt", (receipt) => {
+        console.log("Receipt: ", receipt);
+        alert("Transaction sent.");
+      });
+    setUploaded(true);
+    
+    
+    // setUploaded(true);
+    setArtist("");
+    setSong("");
   }
 
   const uploadFileToPinata = async (file) => {
@@ -44,14 +104,15 @@ const UploadPage = () => {
         method: "POST",
         headers: {
           pinata_api_key: "9764089aa1f479b33462",
-          pinata_secret_api_key: "4a0ab474ea52d4fa517477b33c777a53c854e3dc2e49b41e26fdc09a34575c13",
+          pinata_secret_api_key:
+            "4a0ab474ea52d4fa517477b33c777a53c854e3dc2e49b41e26fdc09a34575c13",
         },
         body: formData,
       });
       const result = await response.json();
-      var ipfs = result.IpfsHash;
+      // var ipfs = result.IpfsHash;
       console.log("var ipfs hash: ", ipfs);
-      console.log("Console log IPFS hash: ",result.IpfsHash);
+      console.log("Console log IPFS hash: ", result.IpfsHash);
       console.log("usestate IPFS hash: ", ipfsHash);
     } catch (error) {
       console.log(error);
@@ -86,26 +147,7 @@ const UploadPage = () => {
       console.log("Dropped files", e.dataTransfer.files);
     },
   };
-  
-
-  // let router = useRouter();
-  // const [loadings, setLoadings] = useState([]);
-  // const enterLoading = (index) => {
-  //   setLoadings((prevLoadings) => {
-      
-  //     const newLoadings = [...prevLoadings];
-  //     newLoadings[index] = true;
-  //     return newLoadings;
-  //   });
-  //   setTimeout(() => {
-  //     router.push("/v1/dashboard");
-  //     setLoadings((prevLoadings) => {
-  //       const newLoadings = [...prevLoadings];
-  //       newLoadings[index] = false;
-  //       return newLoadings;
-  //     });
-  //   }, 3000);
-  // };
+ 
   return (
     <div className="ml-[26rem] mr-[10rem] mt-24 bg-white  rounded-2xl  p-10 shadow-lg shadow-white scrollbar-hide">
       <Form
@@ -137,7 +179,11 @@ const UploadPage = () => {
           align="center"
           tooltip="This is a required field"
         >
-          <Input placeholder="input song name" value={song} onChange={(event) => setSong(event.target.value)} />
+          <Input
+            placeholder="input song name"
+            value={song}
+            onChange={(event) => setSong(event.target.value)}
+          />
         </Form.Item>
         <Form.Item
           label="Artist Name"
@@ -145,7 +191,11 @@ const UploadPage = () => {
           align="center"
           tooltip="This is a required field"
         >
-          <Input placeholder="input artist name" value={artist} onChange={(event) => setArtist(event.target.value)}  />
+          <Input
+            placeholder="input artist name"
+            value={artist}
+            onChange={(event) => setArtist(event.target.value)}
+          />
         </Form.Item>
         <Form.Item>
           <Button
