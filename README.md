@@ -1,35 +1,18 @@
-<a name="readme-top"></a>
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/hrsh22/BeatBoxx">
-    <img src="https://i.ibb.co/t4cZkf9/Screenshot-2023-02-06-214158.png" alt="Logo" width="164" height="57">
-
+  <a href="https://github.com/hrsh22/MusicChain">
   </a>
 
-  <!-- <h3 align="center">BeatBoxx</h3> -->
 
   <p align="center">
-    Decentralized Music, Podcast, and Video Service
+    Decentralized Music Service
     <br />
-    <a href="https://docs.google.com/presentation/d/1nJ7P0w8yClVhAP7Is4heT7QRiBweTV6Cy9S--HCvaHg/edit?usp=sharing"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://drive.google.com/file/d/1QzDIPU_pA_ipV2dVCqOhmsc56jvYyFo9/view?usp=sharing">View Demo</a>
+    <a href="https://www.youtube.com/watch?v=bgOM9HgEIIs">View Demo</a>
     ·
-    <a href="https://github.com/hrsh22/BeatBoxx/issues">Report Bug</a>
+    <a href="https://github.com/hrsh22/MusicChain/issues">Report Bug</a>
     ·
-    <a href="https://github.com/hrsh22/BeatBoxx/issues">Request Feature</a>
+    <a href="https://github.com/hrsh22/MusicChain/issues">Request Feature</a>
   </p>
 </div>
 
@@ -37,36 +20,39 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![dashbord](https://user-images.githubusercontent.com/75811912/217027759-6ed9d8d1-e50f-4c61-960d-d300897803a6.png)
+![dashbord](https://user-images.githubusercontent.com/90423812/219967453-f97c63f9-52f6-4211-8b63-4bb68b496a93.png)
 
-`BeatBoxx` is a decentralized music, podcast, and video service which aims to revolutionize the music industry by enabling artists and music labels to directly connect with listeners. By eliminating intermediaries, BeatBoxx enables a more transparent and fair distribution of music, allowing artists and labels to receive fair compensation for their content.
+`MusicChain` is a decentralized music player that addresses several issues in the current music industry. It enables musicians to upload their music directly, eliminating the need for intermediaries such as record labels and streaming services. Furthermore, users can listen to music on the platform without any limitations or restrictions.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 ### Built With
 
-[![Next][Next.js]][Next-url]
+- Mantle Blockchain
+- Arcana Network
+- Push Protocol
+- IPFS
+- Next JS
+- Tailwind CSS
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## Advantages
 
-* ### Fair Compensation   
-    `BeatBoxx uses blockchain technology to ensure fair compensation for artists and music labels.`
-* ### Control Over Content   
-    `Artists and music labels have complete control over their content, including the distribution and monetization of their music.`
+## The problem it solves:
 
-* ### Direct Connection
-    `Artists and music labels can directly connect with their listeners, eliminating the need for intermediaries, and enabling a more personal and engaging experience.`
-* ### Transparency 
-    `BeatBoxx  ensures a transparent and auditable record of all transactions, helping to prevent fraud and misuse of music.`
-* ### Accesssibility 
-    `BeatBoxx provide access to a vast library of music from all over the world, allowing listeners to discover new artists and genres.`
+MusicChain is a decentralized music player that addresses several issues in the current music industry. It enables musicians to upload their music directly, eliminating the need for intermediaries such as record labels and streaming services. Furthermore, users can listen to music on the platform without any limitations or restrictions.
 
-_For more detail [Presentation](https://docs.google.com/presentation/d/1nJ7P0w8yClVhAP7Is4heT7QRiBweTV6Cy9S--HCvaHg/edit?usp=sharing)_
+One of the key advantages of MusicChain is its use of Mantle blockchain. By using Mantle Blockchain, MusicChain is able to ensure that all transactions are secure and transparent. The use of smart contracts deployed on Mantle ensures that songs are uploaded automatically and efficiently, without the need for intermediaries or manual processing.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Arcana is used for user authentication and login. This helps to ensure that user accounts are secure and that only authorized users have access to the platform. It also helps to prevent fraud and other malicious activity on the platform.
+
+The combination of Arcana Network and Mantle Blockchain provides a powerful and innovative platform for MusicChain. These platforms are well-positioned to help drive the future of blockchain-based services and applications, with their emphasis on security, scalability, and community ownership.
+
+Push Protocol is used to send users notifications and updates about MusicChain. This ensures that users are kept up-to-date with new music releases, changes to the platform, and other important information. This helps to keep users engaged with the platform and encourages them to continue using it.
+
+Finally, MusicChain uses IPFS to store music files. This ensures that files are stored in a decentralized and secure manner, and that they can be accessed from anywhere in the world.
+
+Overall, MusicChain is an innovative solution to many of the problems faced by musicians and users in the current music industry. By leveraging the power of blockchain technology, MusicChain is able to create a secure, transparent, and efficient platform that benefits everyone involved.
 
 
 <!-- GETTING STARTED -->
@@ -82,11 +68,11 @@ _For more detail [Presentation](https://docs.google.com/presentation/d/1nJ7P0w8y
 
 ### Installation
 
-1. Go to [https://github.com/hrsh22/BeatBoxx](https://github.com/hrsh22/BeatBoxx)
+1. Go to [https://github.com/hrsh22//MusicChain](https://github.com/hrsh22//MusicChain)
 
 2. Clone the repo
    ```sh
-   git clone https://github.com/hrsh22/BeatBoxx.git
+   git clone https://github.com/hrsh22//MusicChain.git
    ```
 
 3. Install NPM packages
@@ -98,39 +84,3 @@ _For more detail [Presentation](https://docs.google.com/presentation/d/1nJ7P0w8y
    yarn dev
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/hrsh22/BeatBoxx.svg?style=for-the-badge
-[contributors-url]: https://github.com/hrsh22/BeatBoxx/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/hrsh22/BeatBoxx.svg?style=for-the-badge
-[forks-url]: https://github.com/hrsh22/BeatBoxx/network/members
-[stars-shield]: https://img.shields.io/github/stars/hrsh22/BeatBoxx.svg?style=for-the-badge
-[stars-url]: https://github.com/hrsh22/BeatBoxx/stargazers
-[issues-shield]: https://img.shields.io/github/issues/hrsh22/BeatBoxx.svg?style=for-the-badge
-[issues-url]: https://github.com/hrsh22/BeatBoxx/issues
-[license-shield]: https://img.shields.io/github/license/hrsh22/BeatBoxx.svg?style=for-the-badge
-[license-url]: https://github.com/hrsh22/BeatBoxx/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/hrsh22
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
