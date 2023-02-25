@@ -4,6 +4,7 @@
   <a href="https://github.com/hrsh22/MusicChain">
   </a>
 
+  <img width="150px" src="https://user-images.githubusercontent.com/75811912/221345809-6f65f202-c066-465b-a855-1c166961fd6e.jpg"/>
 
   <p align="center">
     Decentralized Music Service
